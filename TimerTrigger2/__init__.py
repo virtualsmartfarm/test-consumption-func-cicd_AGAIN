@@ -9,7 +9,11 @@ def main(mytimer: func.TimerRequest) -> None:
         tzinfo=datetime.timezone.utc).isoformat()
 
     logging.info("5:24 PM 2/09/2021")
-
+    
+    # from datetime import datetime
+    vic_todays_date = datetime.datetime.now(
+        pytz.timezone('Australia/Melbourne')).strftime("%Y-%m-%d")
+    logging.info(vic_todays_date)
 
     if mytimer.past_due:
         logging.info('The timer is past due!')

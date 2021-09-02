@@ -2,13 +2,19 @@ import datetime
 import logging
 
 import azure.functions as func
-
+import pytz
 
 def main(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
         tzinfo=datetime.timezone.utc).isoformat()
 
     logging.info("5:24 PM 2/09/2021")
+
+
+    # from datetime import datetime
+    vic_todays_date = datetime.datetime.now(
+        pytz.timezone('Australia/Melbourne')).strftime("%Y-%m-%d")
+    logging.info(vic_todays_date)
 
     if mytimer.past_due:
         logging.info('The timer is past due!')
