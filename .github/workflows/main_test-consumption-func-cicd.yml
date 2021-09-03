@@ -40,4 +40,4 @@ jobs:
         app-name: 'test-consumption-func-cicd'
         slot-name: 'production'
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0c2aaca1c463491999bcb85691b87002 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_eb068aabfd674279b51c6b95b0fd70f7 }}
