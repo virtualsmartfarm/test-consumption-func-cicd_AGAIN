@@ -8,14 +8,15 @@ def main(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
         tzinfo=datetime.timezone.utc).isoformat()
 
-    logging.info("5:24 PM 2/09/2021")
+    def is_dst(datetime_now, timezone):
+        aware_dt = timezone.localize(datetime_now)
+        return aware_dt.dst() != datetime.timedelta(0,0)
 
+    victorian_timezone = pytz.timezone("Australia/Melbourne")
 
-    # from datetime import datetime
-    vic_todays_date = datetime.datetime.now(
-        pytz.timezone('Australia/Melbourne')).strftime("%Y-%m-%d")
-    logging.info(vic_todays_date)
-
+    logging.info(datetime.datetime.now())
+    is_dst(datetime.datetime.now(), victorian_timezone)
+    
     if mytimer.past_due:
         logging.info('The timer is past due!')
 
