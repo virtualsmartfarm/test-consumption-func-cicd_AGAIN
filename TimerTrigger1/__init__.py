@@ -14,8 +14,9 @@ def main(mytimer: func.TimerRequest) -> None:
 
     victorian_timezone = pytz.timezone("Australia/Melbourne")
 
-    logging.info("datetime on server: "+datetime.datetime.now())
-    is_dst(datetime.datetime.now(), victorian_timezone)
+    logging.info(datetime.datetime.now())
+    my_dst=is_dst(datetime.datetime.now(), victorian_timezone)
+    logging.info(my_dst)
     
     if mytimer.past_due:
         logging.info('The timer is past due!')
